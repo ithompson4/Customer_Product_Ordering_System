@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<package name="default" extends="struts-default" namespace="/">
+
+		<action name="addProduct"
+			class="actions.ProductAction" method="add">
+			<result name="success" type="chain">productIndex</result>
+			<result name="input">productIndex.jsp</result>
+		</action>
+
+		<action name="deleteProduct"
+			class="actions.ProductAction" method="delete">
+			<result name="success" type="chain">productIndex</result>
+		</action>
+
+		<action name="productIndex"
+			class="actions.ProductAction">
+			<result name="input">productIndex.jsp</result>
+			<result name="success">productIndex.jsp</result>
+		</action>		
+		
+		<action name="addEmployee"
+			class="actions.EmployeeAction" method="add">
+			<result name="success" type="chain">employeeIndex</result>
+			<result name="input">employeeIndex.jsp</result>
+		</action>
+
+		<action name="deleteEmployee"
+			class="actions.EmployeeAction" method="delete">
+			<result name="success" type="chain">employeeIndex</result>
+		</action>
+
+		<action name="employeeIndex"
+			class="actions.EmployeeAction">
+			<result name="input">employeeIndex.jsp</result>
+			<result name="success">employeeIndex.jsp</result>
+		</action>
+		
+		<action name="addSupplier"
+			class="actions.SupplierAction" method="add">
+			<result name="success" type="chain">supplierIndex</result>
+			<result name="input">supplierIndex.jsp</result>
+		</action>
+
+		<action name="deleteSupplier"
+			class="actions.SupplierAction" method="delete">
+			<result name="success" type="chain">supplierIndex</result>
+		</action>
+
+		<action name="supplierIndex"
+			class="actions.SupplierAction">
+			<result name="input">supplierIndex.jsp</result>
+			<result name="success">supplierIndex.jsp</result>
+		</action>
+		
+		<action name="addCustomer"
+			class="actions.CustomerAction" method="add">
+			<result name="success" type="chain">customerIndex</result>
+			<result name="input">customerIndex.jsp</result>
+		</action>
+
+		<action name="deleteCustomer"
+			class="actions.CustomerAction" method="delete">
+			<result name="success" type="chain">customerIndex</result>
+		</action>
+
+		<action name="customerIndex"
+			class="actions.CustomerAction">
+			<result name="input">customerIndex.jsp</result>
+			<result name="success">customerIndex.jsp</result>
+		</action>		
+		
+		<action name="addOrder"
+			class="actions.OrderAction" method="add">
+			<result name="success" type="chain">orderIndex</result>
+			<result name="input">orderIndex.jsp</result>
+		</action>
+
+		<action name="orderIndex"
+			class="actions.OrderAction">
+			<result name="input">orderIndex.jsp</result>
+			<result name="success">orderIndex.jsp</result>
+		</action>
+		
+		 <action name="updateOrder"
+			class="actions.UpdateOrderAction" method="populate">
+			<result name="input">orderIndex.jsp</result>
+			<result name="success" >updateOrderIndex.jsp</result>
+		</action>
+		
+		<action name="updateOrderValues"
+			class="actions.UpdateOrderAction" method="updateValues">
+			<result name="input">updateOrderIndex.jsp</result>
+			<result name="success" >updateOrderIndex.jsp</result>
+		</action>
+		
+		<action name="searchOrderIndex"
+			class="actions.SearchOrderAction">
+			<result name="input">searchOrderIndex.jsp</result>
+			<result name="success">searchOrderIndex.jsp</result>
+		</action>
+		
+		<action name="searchOrder"
+			class="actions.SearchOrderAction" method="search">
+			<result name="success" type="chain">searchOrderIndex</result>
+			<result name="input">searchOrderIndex.jsp</result>
+		</action>		
+		
+	</package>
+</struts>

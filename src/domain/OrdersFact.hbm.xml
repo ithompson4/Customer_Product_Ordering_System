@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="domain.OrdersFact" table="orders_fact" catalog="productsormdb">
+		<composite-id name="id" class="domain.OrdersFactId">
+			<key-property name="productid" type="int">
+				<column name="productid" />
+			</key-property>
+			<key-property name="customerid" type="int">
+				<column name="customerid" />
+			</key-property>
+			<key-property name="employeeid" type="int">
+				<column name="employeeid" />
+			</key-property>
+			<key-property name="supplierid" type="int">
+				<column name="supplierid" />
+			</key-property>
+		</composite-id>
+
+		<many-to-one name="customer" class="domain.Customer"
+			update="false" insert="false" fetch="select">
+			<column name="customerid" not-null="true" />
+		</many-to-one>
+		<many-to-one name="supplier" class="domain.Supplier"
+			update="false" insert="false" fetch="select">
+			<column name="supplierid" not-null="true" />
+		</many-to-one>
+		<many-to-one name="ttime" class="domain.Ttime" update="true"
+			insert="true" fetch="select">
+			<column name="timeid" not-null="true" />
+		</many-to-one>
+		<many-to-one name="employee" class="domain.Employee"
+			update="false" insert="false" fetch="select">
+			<column name="employeeid" not-null="true" />
+		</many-to-one>
+		<many-to-one name="product" class="domain.Product" update="false"
+			insert="false" fetch="select">
+			<column name="productid" not-null="true" />
+		</many-to-one>
+		<property name="price" type="big_decimal">
+			<column name="price" precision="8" />
+		</property>
+		<property name="quantity" type="java.lang.Integer">
+			<column name="quantity" />
+		</property>
+	</class>
+
+</hibernate-mapping>

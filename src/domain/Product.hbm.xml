@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="domain.Product" table="product" catalog="productsormdb">
+		<id name="productid" type="java.lang.Integer">
+			<column name="productid" />
+			<generator class="identity" />
+		</id>
+		<property name="productname" type="string">
+			<column name="productname" length="80" />
+		</property>
+		<property name="productcategory" type="string">
+			<column name="productcategory" length="80" />
+		</property>
+	</class>
+
+</hibernate-mapping>
